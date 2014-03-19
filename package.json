@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "which": "^1.0.5",
-    "crosswalk-apk-generator": "~0.0.11"
+    "crosswalk-apk-generator": ">=0.0.12"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

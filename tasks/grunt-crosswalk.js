@@ -40,7 +40,8 @@ module.exports = function (grunt) {
     }
 
     // determine arch from xwalkAndroidDir/native_libs/
-    if (envConfig.xwalkAndroidDir) {
+    // only if embedded (default is true)
+    if (data.embedded!=false && envConfig.xwalkAndroidDir) {
       var nativeLibs = path.join(envConfig.xwalkAndroidDir,'native_libs');
       var arches = fs.readdirSync(nativeLibs);
 
@@ -94,7 +95,7 @@ module.exports = function (grunt) {
         var app = objects[1];
 
         // create a Locations object for this App instance
-        var locations = Api.Locations(app.sanitisedName, app.pkg, env.arch, outDir);
+        var locations = Api.Locations(app, env, outDir);
 
         // run the build
         return env.build(app, locations);
